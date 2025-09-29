@@ -1,4 +1,4 @@
-# Unification Algorithm in CLISP
+# Unification Algorithm
 
 This project implements a **Unification Algorithm** written in **Common Lisp (CLISP)**.  
 The algorithm compares two symbolic expressions and determines whether they can be unified—that is, whether there exists a set of variable substitutions that makes the two expressions identical.  
