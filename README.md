@@ -68,12 +68,12 @@ This project is designed to run in a **CLISP** environment.
 
 ### 1. Install CLISP
 
-**Linux/Mac**  
+**Linux/Mac:**  
 ```bash
 sudo apt install clisp   # Debian/Ubuntu
 brew install clisp       # macOS (Homebrew)
 ```
-**Windows**
+**Windows:**
 Download and install from [http://clisp.sourceforge.net](http://clisp.sourceforge.net)
 
 ### 2. Load the Program
