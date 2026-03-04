@@ -24,10 +24,10 @@
 ;;;; =====================================================
 
 (test equal-atoms
-  (is (equalp (unificar 'a 'a) 'NADA)))
+  (is (equalp (unificar 'a 'a) :NADA)))
 
 (test different-atoms
-  (is (equalp (unificar 'a 'b) 'FALLO)))
+  (is (equalp (unificar 'a 'b) :FALLO)))
 
 ;;;; =====================================================
 ;;;; Variable with constant
@@ -51,7 +51,7 @@
 
 (test occurs-check
   (is (equalp (unificar '(? x) '(f (? x)))
-              'FALLO)))
+              :FALLO)))
 
 ;;;; =====================================================
 ;;;; Simple structures
@@ -59,11 +59,11 @@
 
 (test identical-structure
   (is (equalp (unificar '(f a) '(f a))
-              'NADA)))
+              :NADA)))
 
 (test different-function-symbol
   (is (equalp (unificar '(f a) '(g a))
-              'FALLO)))
+              :FALLO)))
 
 ;;;; =====================================================
 ;;;; Structure containing variable
@@ -79,7 +79,7 @@
 
 (test variable-variable
   (is (not (equalp (unificar '(? x) '(? y))
-                   'FALLO))))
+                   :FALLO))))
 
 ;;;; =====================================================
 ;;;; Multiple substitutions
