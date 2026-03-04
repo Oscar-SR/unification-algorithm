@@ -1,3 +1,9 @@
+(defpackage :unification
+  (:use :cl)
+  (:export #:unificar #:aplicarsustitucion))
+
+(in-package :unification)
+
 (defun unificar (e1 e2)
 	(prog (f1 f2 g1 g2 z1  z2 temp)
 		(when (or (esAtomo e1) (esAtomo e2))
