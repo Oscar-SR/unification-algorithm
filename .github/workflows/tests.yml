@@ -20,13 +20,13 @@ jobs:
       run: |
         curl -O https://beta.quicklisp.org/quicklisp.lisp
         sbcl --load quicklisp.lisp \
-             --eval '(quicklisp-quickstart:install)' \
-             --eval '(quit)'
+            --eval '(quicklisp-quickstart:install)' \
+            --eval '(quit)'
 
     - name: Run Tests
       run: |
-        sbcl --noinform --load quicklisp/setup.lisp \
-             --eval "(ql:quickload :fiveam)" \
-             --load "tests.lisp" \
-             --eval "(tests:run-tests)" \
-             --eval "(quit)"
+        sbcl --noinform --load "$HOME/quicklisp/setup.lisp" \
+            --eval "(ql:quickload :fiveam)" \
+            --load "tests.lsp" \
+            --eval "(tests:run-tests)" \
+            --eval "(quit)"
