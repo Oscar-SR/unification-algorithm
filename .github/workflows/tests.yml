@@ -27,6 +27,7 @@ jobs:
       run: |
         sbcl --noinform --load "$HOME/quicklisp/setup.lisp" \
             --eval "(ql:quickload :fiveam)" \
+            --load "unification.lsp" \
             --load "tests.lsp" \
             --eval "(tests:run-tests)" \
             --eval "(quit)"

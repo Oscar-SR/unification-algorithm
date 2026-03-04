@@ -5,7 +5,8 @@
 (ql:quickload :fiveam)
 
 (defpackage :tests
-  (:use :cl :fiveam))
+  (:use :cl :fiveam)
+  (:export :run-tests))
 
 (in-package :tests)
 
