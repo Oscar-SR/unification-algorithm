@@ -6,6 +6,9 @@
   (:use :cl)
   (:export #:unificar #:aplicarSustitucion))
 
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (import 'unification::? :tests))
+
 (in-package :unification)
 
 ;;;; =====================================================
