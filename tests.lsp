@@ -8,6 +8,9 @@
   (:use :cl :fiveam :unification)
   (:export :run-tests))
 
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (import 'unification::? :tests))
+
 (in-package :tests)
 
 ;;;; =====================================================
