@@ -29,5 +29,4 @@ jobs:
             --eval "(ql:quickload :fiveam)" \
             --load "unification.lsp" \
             --load "tests.lsp" \
-            --eval "(tests:run-tests)" \
-            --eval "(quit)"
+            --eval "(if (tests:run-tests) (sb-ext:exit :code 0) (sb-ext:exit :code 1))"
