@@ -35,7 +35,7 @@
 
 (test variable-constant
   (is (equalp (unificar '(? x) 'a)
-              '(/ a (? x)))))
+              (/ A (? X)))))
 
 ;;;; =====================================================
 ;;;; Variable with structure
@@ -43,7 +43,7 @@
 
 (test variable-structure
   (is (equalp (unificar '(? x) '(f a))
-              '(/ (f a) (? x)))))
+              (/ (F A) (? X)))))
 
 ;;;; =====================================================
 ;;;; Occurs check
@@ -71,7 +71,7 @@
 
 (test structure-with-variable
   (is (equalp (unificar '(f (? x)) '(f a))
-              '(/ a (? x)))))
+              (/ A (? X)))))
 
 ;;;; =====================================================
 ;;;; Two variables
@@ -89,7 +89,7 @@
   (is (equalp
        (unificar '(f (? x) (? y))
                  '(f a b))
-       '((/ a (? x)) (/ b (? y))))))
+       ((/ A (? X)) (/ B (? Y))))))
 
 ;;;; =====================================================
 ;;;; Functional test: apply substitution
