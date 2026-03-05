@@ -5,8 +5,9 @@
 (ql:quickload :fiveam)
 
 (defpackage :tests
-  (:use :cl :fiveam :unification)
-  (:import-from :unification #:?)
+  (:use :cl :fiveam)
+  ;; Importamos las funciones y símbolos especiales directamente del paquete por defecto
+  (:import-from :cl-user #:unificar #:aplicarSustitucion #:? #:/)
   (:export :run-tests))
 
 (in-package :tests)
