@@ -1,5 +1,5 @@
 ;;;; =====================================================
-;;;; Funciones auxiliares (Ordenadas de más simples a más complejas)
+;;;; Funciones auxiliares
 ;;;; =====================================================
 
 (defun esVariable (var)
@@ -85,7 +85,7 @@
                 s1s2))))
 
 ;;;; =====================================================
-;;;; Función Principal (Va al final)
+;;;; Función principal
 ;;;; =====================================================
 
 (defun unificar (e1 e2)
