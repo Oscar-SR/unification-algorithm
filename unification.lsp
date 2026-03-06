@@ -120,9 +120,7 @@
 			(return-from unificar :FALLO)
 		)
 		(setf g1 (aplicarSustitucion z1 t1))
-        ;; Nota: En tu código original ponía (aplicarSustitucion z2 t2). 
-        ;; Lo he dejado como lo tenías, pero el algoritmo de unificación suele aplicar z1 a t2.
-		(setf g2 (aplicarSustitucion z2 t2)) 
+		(setf g2 (aplicarSustitucion z1 t2)) 
 		(setf z2 (unificar g1 g2))
 		(if (equalp z2 :FALLO)
 			(return-from unificar :FALLO)
