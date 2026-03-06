@@ -50,7 +50,7 @@
 
 (test variable-structure
   (is (equalp (unify '(? x) '(f a))
-              '(/ (F B) (? X)))))
+              '(/ (F A) (? X)))))
 
 ;;;; =====================================================
 ;;;; Occurs check
