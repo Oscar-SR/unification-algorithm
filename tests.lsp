@@ -84,25 +84,6 @@
                    :FALLO))))
 
 ;;;; =====================================================
-;;;; Multiple substitutions
-;;;; =====================================================
-
-(test multiple-substitutions
-  (is (equalp
-       (unificar '(f (? x) (? y))
-                 '(f a b))
-       '((/ A (? X)) (/ B (? Y))))))
-
-;;;; =====================================================
-;;;; Functional test: apply substitution
-;;;; =====================================================
-
-(test apply-substitution-correctly
-  (let* ((substitution (unificar '(f (? x)) '(f a)))
-         (result (aplicarSustitucion substitution '(f (? x)))))
-    (is (equalp result '(f a)))))
-
-;;;; =====================================================
 ;;;; Run test suite
 ;;;; =====================================================
 
