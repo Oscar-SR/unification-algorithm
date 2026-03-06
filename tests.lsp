@@ -7,7 +7,7 @@
 (defpackage :tests
   (:use :cl :fiveam)
   ;; Importamos las funciones y símbolos especiales directamente del paquete por defecto
-  (:import-from :cl-user #:unify #:aplicarSustitucion #:? #:/)
+  (:import-from :cl-user #:unify #:? #:/)
   (:export :run-tests))
 
 (in-package :tests)
