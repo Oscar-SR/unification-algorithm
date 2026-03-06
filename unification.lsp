@@ -89,9 +89,9 @@
 ;;;; =====================================================
 
 (defun unificar (e1 e2)
-    ;; SOLUCIÓN: Hemos añadido t1 y t2 a la lista de variables locales
 	(prog (f1 f2 t1 t2 g1 g2 z1 z2 temp)
 		(when (or (esAtomo e1) (esAtomo e2))
+      ; Intercambiar valores de los parámetros, si es necesario, para que e1 sea átomo
 			(unless (esAtomo e1)
 				(setf temp e1)
 				(setf e1 e2)
