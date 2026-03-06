@@ -20,15 +20,15 @@ This implementation follows a recursive approach that:
 
 | Function | Purpose |
 |----------|---------|
-| **`unificar`** | Main entry point. Takes two expressions (`e1` and `e2`) and tries to unify them. Returns the substitution list or `:FAIL` if unification is impossible. |
-| **`esAtomo`** | Checks if an expression is an atom (variable or constant). |
-| **`esVariable`** | Determines whether an expression is a variable (variables start with `?`). |
-| **`aparece`** | Detects if a variable appears inside another expression (occurs-check) to avoid circular substitutions. |
-| **`formarSustitucion`** | Creates a substitution in the form `(/ value variable)`. |
-| **`aplicarSustitucion`** | Applies a substitution to an expression recursively. |
-| **`sustituir`** | Replaces variables in an expression according to a substitution. |
-| **`componer`** | Merges two substitution lists into one coherent substitution. |
-| **`sustituirComponer`** | Helper function for ordered substitution composition. |
+| **`unify`** | Main entry point. Takes two expressions (`e1` and `e2`) and tries to unify them. Returns the substitution list or `:FAIL` if unification is impossible. |
+| **`is-atom`** | Checks if an expression is an atom (variable or constant). |
+| **`is-variable`** | Determines whether an expression is a variable (variables start with `?`). |
+| **`occurs`** | Checks if a variable appears inside another expression (occurs-check) to avoid circular substitutions. |
+| **`form-substitution`** | Creates a substitution in the form `(/ value variable)`. |
+| **`apply-substitution`** | Applies a substitution to an expression recursively. |
+| **`substitute-term`** | Replaces variables in an expression according to a substitution. |
+| **`compose-substitutions`** | Merges two substitution lists into one coherent substitution. |
+| **`substitute-compose`** | Helper function for ordered substitution composition. |
 
 ---
 
@@ -95,7 +95,7 @@ Then load the source file:
 
 Call the main function:
 ```lisp
-(unificar '((f (? x))) '((f A)))
+(unify '((f (? x))) '((f A)))
 ```
 
 If unification is not possible, the output will be this one:
