@@ -26,14 +26,14 @@
 ;;;; =====================================================
 
 (test equal-atoms
-  (is (equalp (unificar 'a 'a) :NADA))
+  (is (equalp (unificar 'a 'a) :EMPTY))
   ;; Nuevo: (unificar 'f 'f)
-  (is (equalp (unificar 'f 'f) :NADA)))
+  (is (equalp (unificar 'f 'f) :EMPTY)))
 
 (test different-atoms
-  (is (equalp (unificar 'a 'b) :FALLO))
+  (is (equalp (unificar 'a 'b) :FAIL))
   ;; Nuevo: (unificar 'A 'B)
-  (is (equalp (unificar 'A 'B) :FALLO)))
+  (is (equalp (unificar 'A 'B) :FAIL)))
 
 ;;;; =====================================================
 ;;;; Variable with constant
@@ -61,19 +61,19 @@
 ;;;; =====================================================
 
 (test occurs-check
-  (is (equalp (unificar '(? x) '(f (? x))) :FALLO))
+  (is (equalp (unificar '(? x) '(f (? x))) :FAIL))
   ;; Nuevo: (unificar '(? x) '(g (? x)))
-  (is (equalp (unificar '(? x) '(g (? x))) :FALLO)))
+  (is (equalp (unificar '(? x) '(g (? x))) :FAIL)))
 
 ;;;; =====================================================
 ;;;; Simple structures
 ;;;; =====================================================
 
 (test identical-structure
-  (is (equalp (unificar '(f a) '(f a)) :NADA)))
+  (is (equalp (unificar '(f a) '(f a)) :EMPTY)))
 
 (test different-function-symbol
-  (is (equalp (unificar '(f a) '(g a)) :FALLO)))
+  (is (equalp (unificar '(f a) '(g a)) :FAIL)))
 
 ;;;; =====================================================
 ;;;; Structure containing variable(s)
@@ -109,7 +109,7 @@
 
 (test variable-variable
   (is (not (equalp (unificar '(? x) '(? y))
-                   :FALLO))))
+                   :FAIL))))
 
 ;;;; =====================================================
 ;;;; Run test suite
