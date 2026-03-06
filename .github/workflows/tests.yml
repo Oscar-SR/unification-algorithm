@@ -1,0 +1,32 @@
+name: CL Tests
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Install SBCL
+      run: sudo apt-get install -y sbcl
+
+    - name: Install Quicklisp
+      run: |
+        curl -O https://beta.quicklisp.org/quicklisp.lisp
+        sbcl --load quicklisp.lisp \
+            --eval '(quicklisp-quickstart:install)' \
+            --eval '(quit)'
+
+    - name: Run Tests
+      run: |
+        sbcl --noinform --load "$HOME/quicklisp/setup.lisp" \
+            --eval "(ql:quickload :fiveam)" \
+            --load "unification.lsp" \
+            --load "tests.lsp" \
+            --eval "(if (tests:run-tests) (sb-ext:exit :code 0) (sb-ext:exit :code 1))"
