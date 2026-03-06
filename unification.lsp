@@ -1,5 +1,5 @@
 ;;;; =====================================================
-;;;; Auxiliary Functions
+;;;; Auxiliary functions
 ;;;; =====================================================
 
 (defun is-variable (var)
@@ -86,11 +86,11 @@
        s1s2))))
 
 ;;;; =====================================================
-;;;; Main Function
+;;;; Main function
 ;;;; =====================================================
 
 (defun unify (e1 e2)
-  "Main Unification Algorithm"
+  "Main unification algorithm"
   (prog (f1 f2 t1 t2 g1 g2 z1 z2 temp)
     (when (or (is-atom e1) (is-atom e2))
       ; Swap parameter values if necessary so that e1 is the atom
