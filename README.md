@@ -134,7 +134,7 @@ To ensure the reliability of the unification process, a comprehensive test suite
 
 To execute the tests, follow these steps:
 
-1. Ensure you have Quicklisp installed, as it is used to load the FiveAM library. If you don't have it, follow the instructions at quicklisp.org.
+1. Ensure you have Quicklisp installed, as it is used to load the FiveAM library. If you don't have it, follow the instructions at [quicklisp.org](https://www.quicklisp.org/).
 
 2. Start your CLISP environment and run the following commands:
 
