@@ -14,6 +14,32 @@ This implementation follows a recursive approach that:
 3. Recursively unifies complex list structures.
 4. Composes partial substitutions into a single consistent result.
 
+Pseudocode:
+
+```
+UNIFY(E1, E2)
+IF either of them is an atom, swap them if necessary so that E1 is an atom and then DO
+BEGIN
+    IF E1 = E2 return NIL
+    IF E1 is a variable DO
+    BEGIN
+        IF E1 occurs in E2 return FAILURE
+        return E2/E1
+    END
+    IF E2 is a variable return E1/E2
+    return FAILURE
+END
+F1 <- FIRST(E1); T1 <- REST(E1)
+F2 <- FIRST(E2); T2 <- REST(E2)
+Z1 <- UNIFY(F1, F2)
+IF Z1 = FAILURE return FAILURE
+G1 <- Apply Z1 to T1
+G2 <- Apply Z1 to T2
+Z2 <- UNIFY(G1, G2)
+IF Z2 = FAILURE return FAILURE
+return the composition of Z1 and Z2
+```
+
 ---
 
 ## ⚙️ Functions
@@ -101,4 +127,24 @@ Call the main function:
 If unification is not possible, the output will be this one:
 ```lisp
 :FAIL
+```
+
+## 🧪 Tests
+To ensure the reliability of the unification process, a comprehensive test suite has been implemented using FiveAM, a popular testing framework for Common Lisp.
+
+To execute the tests, follow these steps:
+
+1. Ensure you have Quicklisp installed, as it is used to load the FiveAM library. If you don't have it, follow the instructions at quicklisp.org.
+
+2. Start your CLISP environment and run the following commands:
+
+```lisp
+;; 1. Load the main program
+(load "unification.lsp")
+
+;; 2. Load the test file
+(load "tests.lsp")
+
+;; 3. Run the test suite
+(tests:run-tests)
 ```
